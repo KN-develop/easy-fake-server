@@ -4,8 +4,6 @@ const util = require('util');
 const req = require('./importScript');
 const BaseFakeController = require('./fake/controllers/BaseFakeController.js');
 
-const headerMenu = require('./api/header-menu');
-
 
 const routing = {
   '/': async (req, res, callback) => {
