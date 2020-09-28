@@ -41,7 +41,7 @@ module.exports = {
         last_digits: '5577',
         first_digit: '1'
       },
-      url: 'http://127.0.0.1:2001/fake/cards/add',
+      url: 'fake/cards/add',
       message: 'Карта успешно добавлена',
     };
 
@@ -53,7 +53,7 @@ module.exports = {
       status: 'success',
       timeout: 4000,
       UID:"qwdqwd-qwdqwd-vqefe-345346",
-      url: 'http://127.0.0.1:2001/fake/cards/remove',
+      url: 'fake/cards/remove',
       message: 'Мы удалили вашу карту из базы данных',
     };
 
@@ -71,10 +71,10 @@ module.exports = {
             prev: 'cards',
             showProgress: false,
             takeIntoConsideration: false,
-            submitUrl: 'http://127.0.0.1:2001/fake/waiting',
+            submitUrl: 'fake/waiting',
             data: {
               setInterval: 7000,
-              message: 'Мы проверяем вашу заявку, подождите немного'
+              message: 'Проверяем вашу заявку обычно это занимает не более трех минут'
             },
           }
         }

@@ -16,6 +16,7 @@ module.exports = {
                 data: {
                   url: '#',
                 },
+                buttons: false,
               },
               thanks: {
                 next: null,
@@ -25,7 +26,7 @@ module.exports = {
                   text: 'Имя Отчество, поздравляем, ваш договор №000000000 на сумму 0000,00 рублей успешно подписан! Деньги поступят на карту **** **** **** 0000.',
                   info: 'Вся информация о договоре находится во вкладке «Текущий заём»',
                 },
-                buttons: {},
+                buttons: false,
               },
               success: {
                 next: null,
@@ -44,11 +45,11 @@ module.exports = {
                 prev: null,
                 num: 1,
                 title: 'Калькулятор',
-                submitUrl: 'http://127.0.0.1:2001/fake/calculator',
+                submitUrl: 'fake/calculator',
                 showProgressBar: false,
+                takeIntoConsideration: true,
                 buttons: {
-                  submit: 'Сабмит калькулятора',
-                  reject: 'Отменить с первого шага',
+                  submit: 'Начать оформление'
                 },
                 data: {
                   calculator: {
@@ -63,7 +64,7 @@ module.exports = {
                     'pay-loan': null,
                     'interest-rate': null,
 
-                    summMin: 3000,
+                    summMin: 1000,
                     summMax: 30000,
                     summStep: 500,
                     summValue: 3000,
@@ -94,18 +95,10 @@ module.exports = {
                   },
                   checkboxes: [
                     {
-                      id: 123,
-                      name: 'rules',
-                      label: 'С правилами верификации ознакомлен и согласен',
-                      checked: false,
-                      required: true,
-                      error: false
-                    },
-                    {
                       id: 124,
                       name: 'public-face',
                       label: 'Не являюсь публичным лицом РФ',
-                      checked: false,
+                      checked: true,
                       required: true,
                       error: false
                     },
@@ -113,45 +106,42 @@ module.exports = {
                       id: 125,
                       name: 'own-decision',
                       label: 'Решение взять займ принято самостоятельно',
-                      checked: false,
+                      checked: true,
                       required: true,
                       error: false
-                    },
-                    {
-                      id: 126,
-                      name: 'finans-protected',
-                      label: 'Финансовая защита руб.',
-                      checked: false,
-                      required: false,
-                      error: false
-                    },
+                    }
                   ],
                 },
               },
               insurance: {
                 next: 'cards',
                 prev: 'calculator',
-                num: 2,
-                title: 'Страховки',
-                submitUrl: 'http://127.0.0.1:2001/fake/insurance/submit',
+                num: 0,
+                title: 'Выберите дополнительные продукты',
+                submitUrl: 'fake/insurance/submit',
+                showProgressBar: false,
                 buttons: {
-                  submit: 'Сабмит страховок',
-                  reject: '',
+                  submit: 'Следующий шаг',
+                  /*reject: '',*/
                 },
                 data: {
-                  url_insurances_list: 'http://127.0.0.1:2001/fake/insurance',
+                  url_insurances_list: 'fake/insurance',
                 },
               },
               cards: {
                 next: 'confirmation',
                 prev: 'insurance',
-                num: 3,
-                title: 'Карты',
-                submitUrl: 'http://127.0.0.1:2001/fake/cards/submit',
+                num: 2,
+                title: 'Выберите банковскую карту',
+                submitUrl: 'fake/cards/submit',
+                takeIntoConsideration: true,
+                buttons: {
+                  submit: 'Следующий шаг',
+                },
                 data: {
-                  url_fetch_cards: 'http://127.0.0.1:2001/fake/cards',
-                  url_add_card: 'http://127.0.0.1:2001/fake/cards/add',
-                  url_remove_card: 'http://127.0.0.1:2001/fake/cards/remove',
+                  url_fetch_cards: 'fake/cards',
+                  url_add_card: 'fake/cards/add',
+                  url_remove_card: 'fake/cards/remove',
                   errors: {
                     errorFio: "Не заполнено ФИО",
                     semiEmptyFio: "Правильно заполните ФИО",
@@ -162,17 +152,17 @@ module.exports = {
               confirmation: {
                 next: 'thanks',
                 prev: 'cards',
-                num: 4,
+                num: 3,
                 title: 'Идентификация',
-                submitUrl: 'http://127.0.0.1:2001/fake/confirmation/submit',
+                submitUrl: 'fake/confirmation/submit',
+                takeIntoConsideration: true,
                 buttons: {
-                  submit: 'Подтвердить',
-                  reject: '',
+                  submit: 'Подписать'
                 },
                 data: {
-                  url_get_data: 'http://127.0.0.1:2001/fake/confirmation',
-                  url_send_sms: 'http://127.0.0.1:2001/fake/confirmation/send',
-                  url_repeat_sms: 'http://127.0.0.1:2001/fake/confirmation/repeat',
+                  url_get_data: 'fake/confirmation',
+                  url_send_sms: 'fake/confirmation/send',
+                  url_repeat_sms: 'fake/confirmation/repeat',
                   smsTimeout: 25000,
                   isConditionConfirmed: false,
                   SUM_LOAN: '7 500 рублей',
