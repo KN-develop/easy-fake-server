@@ -9,7 +9,7 @@ const routing = {
   '/': async (req, res, callback) => {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     const data = `<h1>welcome to my API.</h1><hr>
-          <p>Для получения фейковых данных следуйте по запросу /fake/***</p>
+          <p>Для получения фейковых данных следуйте по запросу /api/[section]/[module]/[controller]/***</p>
           <p></p>
          `;
     callback(data);
@@ -19,7 +19,7 @@ const routing = {
 const getRoute = (str, CONFIG = {}) => {
   const parseRes = parseStr(str);
 
-  if (parseRes.fake) {
+  if (parseRes.api) {
     let res;
     try {
       res = createFakeDataFunction(parseRes);
@@ -50,10 +50,12 @@ const parseStr = (str) => {
     str,
   };
 
-  if (arr[0] === 'fake') {
+  if (arr[0] === 'api') {
     arr.shift();
-    res.fake = true;
-    res.controller = arr.shift();
+    res.api = true;
+    res.section = arr.shift();
+    res.module = arr.length ? arr.shift(): undefined;
+    res.controller = arr.length ? arr.shift(): undefined;
     res.action = arr.length ? arr.shift() : undefined;
     res.params = arr;
   }
@@ -96,7 +98,7 @@ const createFakeDataFunction = (params) => {
   }
 
   const fr = util.promisify(fs.readFile);
-  const str = `./fake/controllers/${controller}Controller.js`;
+  const str = `./api/${params.section}/${params.module}/${controller}Controller.js`;
 
   async function getController() {
     try {
