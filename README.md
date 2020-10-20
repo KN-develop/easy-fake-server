@@ -10,14 +10,18 @@
 <table>
 <thead>
 <tr>
-<th>/fake</th>
-<th>/calculator</th>
+<th>/api</th>
+<th>/autolux</th>
+<th>/auth</th>
+<th>/cards</th>
 <th>/add</th>
 </tr>
 </thead>
 <tr>
-<td>папка fake</td>
-<td>имя контроллера, будет преобразовано в CalculatorController.js</td>
+<td>папка api</td>
+<td>проект</td>
+<td>модуль</td>
+<td>имя контроллера, будет преобразовано в CardsController.js</td>
 <td>имя метода, будет преобразовано в addAction. Если не задано, то будет вызван indexAction контроллера. Если тут цифра, то будет вызван oneAction контроллера. Если метод в контроллере не будет найден, то будет вызван метод indexAction базового контроллера</td>
 </tr>
 </table>
