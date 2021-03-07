@@ -1,3 +1,5 @@
+/*eslint no-eval: "off"*/
+
 function req(script) {
   let module = {};
   let exports = {};
