@@ -1,4 +1,4 @@
-#Easy Fake Server
+# Easy Fake Server [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5eb8790e140b45b3ae8df8b158226462)](https://www.codacy.com/gh/KN-develop/easy-fake-server/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KN-develop/easy-fake-server&amp;utm_campaign=Badge_Grade)
 
 Сервер фейковых данных на ноде, собранный на коленке.
 1. npm install
