@@ -1,5 +1,5 @@
 const createMessage = (params) => {
-  return 'Вызван базовый контроллер, метод: indexAction\n' + params.toString();
+  return `Вызван базовый контроллер, метод: indexAction\n ${params.toString()}`;
 };
 
 module.exports = {
