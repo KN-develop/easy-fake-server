@@ -1,8 +1,12 @@
+const createMessage = (params) => {
+  return 'Вызван базовый контроллер, метод: indexAction\n' + params.toString();
+};
+
 module.exports = {
   indexAction(...params) {
-    return 'Вызван базовый контроллер, метод: indexAction\n' + params.toString();
+    return createMessage(params);
   },
   oneAction(...params) {
-    return 'Вызван базовый контроллер, метод: oneAction\n' + params.toString();
+    return createMessage(params);
   }
 };
